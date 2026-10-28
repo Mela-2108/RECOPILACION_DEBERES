@@ -1,0 +1,37 @@
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.rsuser
+
+# Compilaciones .NET
+**/bin/
+**/obj/
+[Dd]ebug/
+[Rr]elease/
+artifacts/
+
+# Dependencias descargadas
+**/packages/
+**/node_modules/
+
+# Archivos temporales
+*.tmp
+*.log
+*.cache
+
+# Archivos locales y secretos
+.env
+.env.*
+!.env.example
+**/appsettings.Development.json
+**/appsettings.Local.json
+*.pfx
+
+# Bases de datos locales
+*.mdf
+*.ldf
+
+# Archivos ZIP anteriores
+*.zip
