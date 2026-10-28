@@ -35,3 +35,10 @@ artifacts/
 
 # Archivos ZIP anteriores
 *.zip
+
+# Paquetes NuGet descargados de proyectos .NET Framework
+**/packages/*
+
+# Exceptuar archivos de configuración de NuGet
+!**/packages/repositories.config
+
