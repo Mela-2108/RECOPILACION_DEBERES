@@ -1,0 +1,105 @@
+﻿@model ConAuntenticacion.Models.Alumno
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Alumno</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombres)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Apellidos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Apellidos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Edad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Edad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Genero)
+        </dt>
+
+        <dd>
+            @*@Html.DisplayFor(model => model.Genero)*@
+            @{
+
+                if (Model.Genero == "M")
+                {
+                    <text>Masculino</text>
+                }
+                else if (Model.Genero == "F")
+                {
+                    <text>Femenino</text>
+                }
+                else if (Model.Genero == "L")
+                {
+                    <text>Lesbiana</text>
+                }
+                else if (Model.Genero == "G")
+                {
+                    <text>Gay</text>
+                }
+                else if (Model.Genero == "B")
+                {
+                    <text>Bisexual</text>
+                }
+                else if (Model.Genero == "T")
+                {
+                    <text>Transexual</text>
+                }
+                else
+                {
+                    <text>No especificado</text>
+                }
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaNacimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaNacimiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Foto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Foto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Carrera.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carrera.descripcion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

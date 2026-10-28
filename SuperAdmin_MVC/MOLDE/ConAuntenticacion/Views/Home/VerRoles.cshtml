@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "VerRoles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>VerRoles</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo Rol", "CrearRol")
+</p>
+
+
+@{
+
+    if (User.IsInRole("Administrador"))
+    {
+        <h1 style="color:red">Tu Roll es :</h1>
+        <h1 style="font-size:50px;">Usted es ADMINISTRADOR </h1>
+
+    }
+    else if (User.IsInRole("Medico"))
+    {
+
+
+        <h2 style="color:blue">Tu Roll es :</h2>
+        <h1 style="font-size:30px;">Usted  es MEDICO</h1>
+
+
+    }
+    else if (User.IsInRole("Paciente"))
+    {
+
+
+        <h2 style="color:blue">Tu Roll es :</h2>
+        <h1 style="font-size:30px;">Usted  es PACIENTE</h1>
+
+
+    }
+    else
+    {
+
+        <h1 style="font-size:30px;">Usted no tiene asignado un rol</h1>
+    }
+}
+

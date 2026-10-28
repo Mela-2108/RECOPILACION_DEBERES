@@ -1,0 +1,136 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Catedra_ESPE\\2 - DesarrolloWeb\\I PARCIAL - ASP .Net\\EJERCICIOS_OD\\05_MVC_02 ListaPeliculas\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{621CCBAA-1F45-42AD-A195-24F02C4635F7}|PyoyectoTest.csproj|e:\\catedra_espe\\2 - desarrolloweb\\i parcial - asp .net\\ejercicios_od\\05_mvc_02 listapeliculas\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{621CCBAA-1F45-42AD-A195-24F02C4635F7}|PyoyectoTest.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{621CCBAA-1F45-42AD-A195-24F02C4635F7}|PyoyectoTest.csproj|E:\\Catedra_ESPE\\2 - DesarrolloWeb\\I PARCIAL - ASP .Net\\EJERCICIOS_OD\\05_MVC_02 ListaPeliculas\\views\\home\\pelicula.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{621CCBAA-1F45-42AD-A195-24F02C4635F7}|PyoyectoTest.csproj|solutionrelative:views\\home\\pelicula.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{621CCBAA-1F45-42AD-A195-24F02C4635F7}|PyoyectoTest.csproj|E:\\Catedra_ESPE\\2 - DesarrolloWeb\\I PARCIAL - ASP .Net\\EJERCICIOS_OD\\05_MVC_02 ListaPeliculas\\models\\pelicula.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{621CCBAA-1F45-42AD-A195-24F02C4635F7}|PyoyectoTest.csproj|solutionrelative:models\\pelicula.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{621CCBAA-1F45-42AD-A195-24F02C4635F7}|PyoyectoTest.csproj|E:\\Catedra_ESPE\\2 - DesarrolloWeb\\I PARCIAL - ASP .Net\\EJERCICIOS_OD\\05_MVC_02 ListaPeliculas\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{621CCBAA-1F45-42AD-A195-24F02C4635F7}|PyoyectoTest.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{621CCBAA-1F45-42AD-A195-24F02C4635F7}|PyoyectoTest.csproj|E:\\Catedra_ESPE\\2 - DesarrolloWeb\\I PARCIAL - ASP .Net\\EJERCICIOS_OD\\05_MVC_02 ListaPeliculas\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{621CCBAA-1F45-42AD-A195-24F02C4635F7}|PyoyectoTest.csproj|solutionrelative:web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 286,
+          "SelectedChildIndex": 10,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{6d4078d1-5951-4ed1-ac0e-0a8099c1cce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Web.config",
+              "DocumentMoniker": "E:\\Catedra_ESPE\\2 - DesarrolloWeb\\I PARCIAL - ASP .Net\\EJERCICIOS_OD\\05_MVC_02 ListaPeliculas\\Web.config",
+              "RelativeDocumentMoniker": "Web.config",
+              "ToolTip": "E:\\Catedra_ESPE\\2 - DesarrolloWeb\\I PARCIAL - ASP .Net\\EJERCICIOS_OD\\05_MVC_02 ListaPeliculas\\Web.config",
+              "RelativeToolTip": "Web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-11-11T22:36:56.746Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Pelicula.cshtml",
+              "DocumentMoniker": "E:\\Catedra_ESPE\\2 - DesarrolloWeb\\I PARCIAL - ASP .Net\\EJERCICIOS_OD\\05_MVC_02 ListaPeliculas\\Views\\Home\\Pelicula.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Pelicula.cshtml",
+              "ToolTip": "E:\\Catedra_ESPE\\2 - DesarrolloWeb\\I PARCIAL - ASP .Net\\EJERCICIOS_OD\\05_MVC_02 ListaPeliculas\\Views\\Home\\Pelicula.cshtml",
+              "RelativeToolTip": "Views\\Home\\Pelicula.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABkAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-11T22:30:25.051Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Pelicula.cs",
+              "DocumentMoniker": "E:\\Catedra_ESPE\\2 - DesarrolloWeb\\I PARCIAL - ASP .Net\\EJERCICIOS_OD\\05_MVC_02 ListaPeliculas\\Models\\Pelicula.cs",
+              "RelativeDocumentMoniker": "Models\\Pelicula.cs",
+              "ToolTip": "E:\\Catedra_ESPE\\2 - DesarrolloWeb\\I PARCIAL - ASP .Net\\EJERCICIOS_OD\\05_MVC_02 ListaPeliculas\\Models\\Pelicula.cs",
+              "RelativeToolTip": "Models\\Pelicula.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T22:22:09.277Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "E:\\Catedra_ESPE\\2 - DesarrolloWeb\\I PARCIAL - ASP .Net\\EJERCICIOS_OD\\05_MVC_02 ListaPeliculas\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "E:\\Catedra_ESPE\\2 - DesarrolloWeb\\I PARCIAL - ASP .Net\\EJERCICIOS_OD\\05_MVC_02 ListaPeliculas\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAA1wBwAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T22:19:26.278Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "E:\\Catedra_ESPE\\2 - DesarrolloWeb\\I PARCIAL - ASP .Net\\EJERCICIOS_OD\\05_MVC_02 ListaPeliculas\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "E:\\Catedra_ESPE\\2 - DesarrolloWeb\\I PARCIAL - ASP .Net\\EJERCICIOS_OD\\05_MVC_02 ListaPeliculas\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABkAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-11T22:19:00.684Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 120,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{a80febb4-e7e0-4147-b476-21aaf2453969}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

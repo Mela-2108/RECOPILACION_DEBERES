@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PacienteDB_FotoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Consulta">
+    <Key>
+      <PropertyRef Name="codigoConsulta" />
+    </Key>
+    <Property Name="codigoConsulta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha" Type="date" />
+    <Property Name="horaInicio" Type="int" />
+    <Property Name="horaFin" Type="int" />
+    <Property Name="codPaciente" Type="int" />
+    <Property Name="codMedico" Type="int" />
+  </EntityType>
+  <EntityType Name="Medico">
+    <Key>
+      <PropertyRef Name="codMedico" />
+    </Key>
+    <Property Name="codMedico" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="horaInicio" Type="int" />
+    <Property Name="horaFin" Type="int" />
+    <Property Name="codEspecialidad" Type="varchar" MaxLength="10" />
+    <Property Name="codClinica" Type="int" />
+  </EntityType>
+  <EntityType Name="Paciente">
+    <Key>
+      <PropertyRef Name="codPaciente" />
+    </Key>
+    <Property Name="codPaciente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cedula" Type="varchar" MaxLength="10" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="fechaNacimiento" Type="date" />
+    <Property Name="peso" Type="float" />
+    <Property Name="altura" Type="float" />
+    <Property Name="foto" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__Consulta__codMed__398D8EEE">
+    <End Role="Medico" Type="Self.Medico" Multiplicity="0..1" />
+    <End Role="Consulta" Type="Self.Consulta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medico">
+        <PropertyRef Name="codMedico" />
+      </Principal>
+      <Dependent Role="Consulta">
+        <PropertyRef Name="codMedico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Consulta__codPac__38996AB5">
+    <End Role="Paciente" Type="Self.Paciente" Multiplicity="0..1" />
+    <End Role="Consulta" Type="Self.Consulta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Paciente">
+        <PropertyRef Name="codPaciente" />
+      </Principal>
+      <Dependent Role="Consulta">
+        <PropertyRef Name="codPaciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PacienteDB_FotoModelStoreContainer">
+    <EntitySet Name="Consulta" EntityType="Self.Consulta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Medico" EntityType="Self.Medico" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Paciente" EntityType="Self.Paciente" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Consulta__codMed__398D8EEE" Association="Self.FK__Consulta__codMed__398D8EEE">
+      <End Role="Medico" EntitySet="Medico" />
+      <End Role="Consulta" EntitySet="Consulta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Consulta__codPac__38996AB5" Association="Self.FK__Consulta__codPac__38996AB5">
+      <End Role="Paciente" EntitySet="Paciente" />
+      <End Role="Consulta" EntitySet="Consulta" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ConAutenticacion.Models.Paciente>
+
+@{
+    ViewBag.Title = "Listado de Pacientes";
+}
+
+<h2>Listado de Pacientes</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>Nombre Paciente</th>
+        <th>Fecha de Nacimiento</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @{
+                    string fechaNac = item.fechaNacimiento.HasValue ? item.fechaNacimiento.Value.ToString("dd/MM/yyyy") : "";
+                }
+                @fechaNac
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.codPaciente }) |
+                @Html.ActionLink("Details", "Details", new { id = item.codPaciente }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.codPaciente })
+            </td>
+        </tr>
+    }
+
+</table>

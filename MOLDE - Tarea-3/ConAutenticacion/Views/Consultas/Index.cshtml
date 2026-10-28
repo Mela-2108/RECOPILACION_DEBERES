@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ConAutenticacion.Models.Consulta>
+
+@{
+    ViewBag.Title = "TABLA CONSULTA";
+}
+
+<h2>TABLA CONSULTA</h2>
+
+<p>
+    @Html.ActionLink("Crear Nueva", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>fecha</th>
+        <th>horaInicio</th>
+        <th>horaFin</th>
+        <th>PACIENTE</th>
+        <th>MEDICO</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @{
+                    string fechaTexto = item.fecha.HasValue ? item.fecha.Value.ToString("dd - MMMM - yyyy", new System.Globalization.CultureInfo("es-ES")) : "";
+                }
+                @fechaTexto
+            </td>
+            <td>
+                @{
+                    string horaIni = item.horaInicio.HasValue ? DateTime.Today.AddHours(item.horaInicio.Value).ToString("hh:mm tt", new System.Globalization.CultureInfo("es-ES")) : "";
+                }
+                @horaIni
+            </td>
+            <td>
+                @{
+                    string horaFin = item.horaFin.HasValue ? DateTime.Today.AddHours(item.horaFin.Value).ToString("hh:mm tt", new System.Globalization.CultureInfo("es-ES")) : "";
+                }
+                @horaFin
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Paciente.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Medico.nombre)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.codigoConsulta }) |
+                @Html.ActionLink("Details", "Details", new { id = item.codigoConsulta }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.codigoConsulta })
+            </td>
+        </tr>
+    }
+
+</table>

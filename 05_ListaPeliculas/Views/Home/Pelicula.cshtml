@@ -1,0 +1,44 @@
+﻿@*    @model PyoyectoTest.Models.Pelicula   *@
+
+@using PyoyectoTest.Models
+@model List<Pelicula>
+
+
+@{
+    ViewBag.Title = "PELICULAS";
+}
+<main aria-labelledby="title">
+    <h2 id="title">@ViewBag.Title.</h2>
+    <br /> <br />
+    @*  <h3>@ViewBag.Message</h3>  *@
+
+    <table class="table table-dark">
+        <tr>
+            <th>Titulo</th>
+            <th>Duracion</th>
+            <th>Pais</th>
+            <th>Lanzamiento</th>
+        </tr>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Titulo</td>
+                    <td>@item.Duracion</td>
+                    <td>@item.Pais</td>
+                    <td>@item.Publicacion.ToString("dd/MM/yyyy")</td>
+                </tr>
+            }
+          
+
+        </tbody>
+    </table>
+
+
+
+    @*<h4>@Model.Titulo</h4>
+        <h5>Duración: @Model.Duracion</h5>
+        <h5>Publicación:  @Model.Publicacion.ToString("dd/MM/yyyy")</h5>
+        <h5>Pais: @Model.Pais</h5>*@
+
+</main>

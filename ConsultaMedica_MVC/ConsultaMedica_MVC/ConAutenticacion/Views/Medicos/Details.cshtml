@@ -1,0 +1,50 @@
+﻿@model ConAutenticacion.Models.Medico
+
+@{
+    ViewBag.Title = "Detalle Médico";
+}
+
+<h2>Detalle Médico</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Nombre Médico:</dt>
+        <dd>@Html.DisplayFor(model => model.nombre)</dd>
+
+        <dt>Horario de Atención:</dt>
+        <dd>@Html.DisplayFor(model => model.horaInicio) hasta @Html.DisplayFor(model => model.horaFin)</dd>
+
+        <dt>Clínica:</dt>
+        <dd>@Html.DisplayFor(model => model.codClinica)</dd>
+
+        <dt>Especialidad:</dt>
+        <dd>@Html.DisplayFor(model => model.codEspecialidad)</dd>
+
+        <dt>Tarifa por Consulta:</dt>
+        <dd>
+            @{
+                string esp = Model.codEspecialidad != null ? Model.codEspecialidad.ToLower() : "";
+                string tarifa = "$20,00"; // Cualquier otra Especialidad por defecto
+
+                if (esp.Contains("general"))
+                {
+                    tarifa = "$5,00";
+                }
+                else if (esp.Contains("pediatr"))
+                {
+                    tarifa = "$10,00";
+                }
+                else if (esp.Contains("geriatr"))
+                {
+                    tarifa = "$15,00";
+                }
+            }
+            <strong>@tarifa</strong>
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.codMedico }) |
+    @Html.ActionLink("Regresar a la lista", "Index")
+</p>

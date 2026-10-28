@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MatriculacionFinalBD_NewModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="agencia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="255" />
+    <Property Name="direccion" Type="varchar" MaxLength="255" />
+    <Property Name="telefono" Type="varchar" MaxLength="50" />
+    <Property Name="horainicio" Type="time" Precision="7" />
+    <Property Name="horafin" Type="time" Precision="7" />
+    <Property Name="foto" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="matricula">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha" Type="date" />
+    <Property Name="vehiculo" Type="int" />
+    <Property Name="agencia" Type="int" />
+    <Property Name="anio" Type="int" />
+  </EntityType>
+  <EntityType Name="vehiculo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="placa" Type="varchar" MaxLength="50" />
+    <Property Name="marca" Type="int" />
+    <Property Name="motor" Type="varchar" MaxLength="100" />
+    <Property Name="chasis" Type="varchar" MaxLength="100" />
+    <Property Name="combustible" Type="varchar" MaxLength="50" />
+    <Property Name="anio" Type="int" />
+    <Property Name="color" Type="int" />
+    <Property Name="foto" Type="varchar" MaxLength="20" />
+    <Property Name="avaluo" Type="decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <Association Name="FK__matricula__agenc__300424B4">
+    <End Role="agencia" Type="Self.agencia" Multiplicity="0..1" />
+    <End Role="matricula" Type="Self.matricula" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="agencia">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="matricula">
+        <PropertyRef Name="agencia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__matricula__vehic__2F10007B">
+    <End Role="vehiculo" Type="Self.vehiculo" Multiplicity="0..1" />
+    <End Role="matricula" Type="Self.matricula" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vehiculo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="matricula">
+        <PropertyRef Name="vehiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MatriculacionFinalBD_NewModelStoreContainer">
+    <EntitySet Name="agencia" EntityType="Self.agencia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="matricula" EntityType="Self.matricula" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vehiculo" EntityType="Self.vehiculo" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__matricula__agenc__300424B4" Association="Self.FK__matricula__agenc__300424B4">
+      <End Role="agencia" EntitySet="agencia" />
+      <End Role="matricula" EntitySet="matricula" />
+    </AssociationSet>
+    <AssociationSet Name="FK__matricula__vehic__2F10007B" Association="Self.FK__matricula__vehic__2F10007B">
+      <End Role="vehiculo" EntitySet="vehiculo" />
+      <End Role="matricula" EntitySet="matricula" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

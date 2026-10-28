@@ -1,0 +1,121 @@
+﻿@model IEnumerable<ConAuntenticacion.Models.vehiculo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<!-- AVISO DE ERROR SI INTENTAN ELIMINAR SIN PERMISO -->
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger" style="margin-top: 15px;">
+        @TempData["Error"]
+    </div>
+}
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<!-- Formulario de filtros requerido por la práctica -->
+@using (Html.BeginForm("Index", "vehiculoes", FormMethod.Get))
+{
+    <div class="well" style="margin-top: 15px; padding: 15px; background-color: #f5f5f5;">
+        <h4>Filtros de Búsqueda</h4>
+        <hr />
+        <div class="row">
+            <!-- Filtro por Combustible mediante CheckBox / Opciones -->
+            <div class="col-md-6">
+                <label><strong>Combustible:</strong></label><br />
+                <label class="checkbox-inline" style="margin-right: 10px;">
+                    <input type="checkbox" name="combustibleFiltro" value="Gasolina" /> Gasolina
+                </label>
+                <label class="checkbox-inline" style="margin-right: 10px;">
+                    <input type="checkbox" name="combustibleFiltro" value="Diesel" /> Diesel
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" name="combustibleFiltro" value="Hibrido" /> Híbrido
+                </label>
+            </div>
+
+            <!-- Filtro por País/Marca mediante Lista Desplegable -->
+            <div class="col-md-4">
+                <label><strong>País de la Marca:</strong></label>
+                @Html.DropDownList("marcaFiltro", new SelectList(new[] { "Ecuador", "Japón", "USA" }), "--- Seleccione ---", new { @class = "form-control" })
+            </div>
+
+            <div class="col-md-2" style="margin-top: 24px;">
+                <input type="submit" value="Filtrar" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<table class="table">
+    <tr>
+        <!-- Columna para la Fotografía -->
+        <th>
+            Fotografía
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.placa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.chasis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.marca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.anio)
+        </th>
+        <th>Acciones</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <!-- Celda que muestra la imagen o un texto alternativo si no tiene -->
+            <td>
+                @if (!string.IsNullOrEmpty(item.foto))
+                {
+                    <img src="~/@item.foto" alt="Foto del vehículo" width="80" class="img-thumbnail" />
+                }
+                else
+                {
+                    <span class="text-muted">Sin foto</span>
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.placa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.chasis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.marca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.anio)
+            </td>
+            <td>
+                @if (User.IsInRole("SuperAdmin"))
+                {
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) @: |
+                    @Html.ActionLink("Details", "Details", new { id = item.id }) @: |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                }
+                else if (User.IsInRole("ADM"))
+                {
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) @: |
+                    @Html.ActionLink("Details", "Details", new { id = item.id })
+                }
+                else if (User.IsInRole("AGENTE"))
+                {
+                    @Html.ActionLink("Details", "Details", new { id = item.id })
+                }
+            </td>
+        </tr>
+    }
+</table>

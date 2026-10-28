@@ -1,0 +1,35 @@
+﻿@model ConAutenticacion.Models.Paciente
+
+@{
+    ViewBag.Title = "Detalle Paciente";
+}
+
+<h2>Detalle Paciente</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Nombre:</dt>
+        <dd>@Html.DisplayFor(model => model.nombre)</dd>
+
+        <dt>Cédula:</dt>
+        <dd>@Html.DisplayFor(model => model.cedula)</dd>
+
+        <dt>Peso:</dt>
+        <dd>@Html.DisplayFor(model => model.peso) kg</dd>
+
+        <dt>Altura:</dt>
+        <dd>@Html.DisplayFor(model => model.altura) m</dd>
+
+        <dt>Foto:</dt>
+        <dd>
+            <!-- Asegúrate de tener la carpeta 'Imagenes' en la raíz con la foto correspondiente -->
+            <img src="~/Imagenes/@Model.foto" alt="Foto Paciente" style="width:150px; height:auto; border-radius:5px;" />            <img src="~/Imagenes/paciente 2.jpeg" alt="Foto Paciente" style="width:150px; height:auto; border-radius:5px;" />
+
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.codPaciente }) |
+    @Html.ActionLink("Regresar a la lista", "Index")
+</p>

@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PacienteDB_FotoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Consulta">
+          <Key>
+            <PropertyRef Name="codigoConsulta" />
+          </Key>
+          <Property Name="codigoConsulta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fecha" Type="date" />
+          <Property Name="horaInicio" Type="int" />
+          <Property Name="horaFin" Type="int" />
+          <Property Name="codPaciente" Type="int" />
+          <Property Name="codMedico" Type="int" />
+        </EntityType>
+        <EntityType Name="Medico">
+          <Key>
+            <PropertyRef Name="codMedico" />
+          </Key>
+          <Property Name="codMedico" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="horaInicio" Type="int" />
+          <Property Name="horaFin" Type="int" />
+          <Property Name="codEspecialidad" Type="varchar" MaxLength="10" />
+          <Property Name="codClinica" Type="int" />
+        </EntityType>
+        <EntityType Name="Paciente">
+          <Key>
+            <PropertyRef Name="codPaciente" />
+          </Key>
+          <Property Name="codPaciente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cedula" Type="varchar" MaxLength="10" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="fechaNacimiento" Type="date" />
+          <Property Name="peso" Type="float" />
+          <Property Name="altura" Type="float" />
+          <Property Name="foto" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__Consulta__codMed__398D8EEE">
+          <End Role="Medico" Type="Self.Medico" Multiplicity="0..1" />
+          <End Role="Consulta" Type="Self.Consulta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Medico">
+              <PropertyRef Name="codMedico" />
+            </Principal>
+            <Dependent Role="Consulta">
+              <PropertyRef Name="codMedico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Consulta__codPac__38996AB5">
+          <End Role="Paciente" Type="Self.Paciente" Multiplicity="0..1" />
+          <End Role="Consulta" Type="Self.Consulta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paciente">
+              <PropertyRef Name="codPaciente" />
+            </Principal>
+            <Dependent Role="Consulta">
+              <PropertyRef Name="codPaciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PacienteDB_FotoModelStoreContainer">
+          <EntitySet Name="Consulta" EntityType="Self.Consulta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Medico" EntityType="Self.Medico" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Paciente" EntityType="Self.Paciente" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Consulta__codMed__398D8EEE" Association="Self.FK__Consulta__codMed__398D8EEE">
+            <End Role="Medico" EntitySet="Medico" />
+            <End Role="Consulta" EntitySet="Consulta" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Consulta__codPac__38996AB5" Association="Self.FK__Consulta__codPac__38996AB5">
+            <End Role="Paciente" EntitySet="Paciente" />
+            <End Role="Consulta" EntitySet="Consulta" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PacienteDB_FotoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Consulta">
+          <Key>
+            <PropertyRef Name="codigoConsulta" />
+          </Key>
+          <Property Name="codigoConsulta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <Property Name="horaInicio" Type="Int32" />
+          <Property Name="horaFin" Type="Int32" />
+          <Property Name="codPaciente" Type="Int32" />
+          <Property Name="codMedico" Type="Int32" />
+          <NavigationProperty Name="Medico" Relationship="Self.FK__Consulta__codMed__398D8EEE" FromRole="Consulta" ToRole="Medico" />
+          <NavigationProperty Name="Paciente" Relationship="Self.FK__Consulta__codPac__38996AB5" FromRole="Consulta" ToRole="Paciente" />
+        </EntityType>
+        <EntityType Name="Medico">
+          <Key>
+            <PropertyRef Name="codMedico" />
+          </Key>
+          <Property Name="codMedico" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="horaInicio" Type="Int32" />
+          <Property Name="horaFin" Type="Int32" />
+          <Property Name="codEspecialidad" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="codClinica" Type="Int32" />
+          <NavigationProperty Name="Consultas" Relationship="Self.FK__Consulta__codMed__398D8EEE" FromRole="Medico" ToRole="Consulta" />
+        </EntityType>
+        <EntityType Name="Paciente">
+          <Key>
+            <PropertyRef Name="codPaciente" />
+          </Key>
+          <Property Name="codPaciente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cedula" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fechaNacimiento" Type="DateTime" Precision="0" />
+          <Property Name="peso" Type="Double" />
+          <Property Name="altura" Type="Double" />
+          <Property Name="foto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Consultas" Relationship="Self.FK__Consulta__codPac__38996AB5" FromRole="Paciente" ToRole="Consulta" />
+        </EntityType>
+        <Association Name="FK__Consulta__codMed__398D8EEE">
+          <End Role="Medico" Type="Self.Medico" Multiplicity="0..1" />
+          <End Role="Consulta" Type="Self.Consulta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Medico">
+              <PropertyRef Name="codMedico" />
+            </Principal>
+            <Dependent Role="Consulta">
+              <PropertyRef Name="codMedico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Consulta__codPac__38996AB5">
+          <End Role="Paciente" Type="Self.Paciente" Multiplicity="0..1" />
+          <End Role="Consulta" Type="Self.Consulta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paciente">
+              <PropertyRef Name="codPaciente" />
+            </Principal>
+            <Dependent Role="Consulta">
+              <PropertyRef Name="codPaciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PacienteDB_FotoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Consultas" EntityType="Self.Consulta" />
+          <EntitySet Name="Medicos" EntityType="Self.Medico" />
+          <EntitySet Name="Pacientes" EntityType="Self.Paciente" />
+          <AssociationSet Name="FK__Consulta__codMed__398D8EEE" Association="Self.FK__Consulta__codMed__398D8EEE">
+            <End Role="Medico" EntitySet="Medicos" />
+            <End Role="Consulta" EntitySet="Consultas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Consulta__codPac__38996AB5" Association="Self.FK__Consulta__codPac__38996AB5">
+            <End Role="Paciente" EntitySet="Pacientes" />
+            <End Role="Consulta" EntitySet="Consultas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PacienteDB_FotoModelStoreContainer" CdmEntityContainer="PacienteDB_FotoEntities">
+          <EntitySetMapping Name="Consultas">
+            <EntityTypeMapping TypeName="PacienteDB_FotoModel.Consulta">
+              <MappingFragment StoreEntitySet="Consulta">
+                <ScalarProperty Name="codigoConsulta" ColumnName="codigoConsulta" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="horaInicio" ColumnName="horaInicio" />
+                <ScalarProperty Name="horaFin" ColumnName="horaFin" />
+                <ScalarProperty Name="codPaciente" ColumnName="codPaciente" />
+                <ScalarProperty Name="codMedico" ColumnName="codMedico" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Medicos">
+            <EntityTypeMapping TypeName="PacienteDB_FotoModel.Medico">
+              <MappingFragment StoreEntitySet="Medico">
+                <ScalarProperty Name="codMedico" ColumnName="codMedico" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="horaInicio" ColumnName="horaInicio" />
+                <ScalarProperty Name="horaFin" ColumnName="horaFin" />
+                <ScalarProperty Name="codEspecialidad" ColumnName="codEspecialidad" />
+                <ScalarProperty Name="codClinica" ColumnName="codClinica" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pacientes">
+            <EntityTypeMapping TypeName="PacienteDB_FotoModel.Paciente">
+              <MappingFragment StoreEntitySet="Paciente">
+                <ScalarProperty Name="codPaciente" ColumnName="codPaciente" />
+                <ScalarProperty Name="cedula" ColumnName="cedula" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="fechaNacimiento" ColumnName="fechaNacimiento" />
+                <ScalarProperty Name="peso" ColumnName="peso" />
+                <ScalarProperty Name="altura" ColumnName="altura" />
+                <ScalarProperty Name="foto" ColumnName="foto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

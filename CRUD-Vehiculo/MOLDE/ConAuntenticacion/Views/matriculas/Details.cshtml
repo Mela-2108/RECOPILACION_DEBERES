@@ -1,0 +1,52 @@
+﻿@model ConAuntenticacion.Models.matricula
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>matricula</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha)
+        </dt>
+
+        <dd>
+            @(Model.fecha.HasValue ? Model.fecha.Value.ToString("dd '–' MMMM '–' yyyy", new System.Globalization.CultureInfo("es-ES")) : "Sin fecha")
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.anio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.anio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.agencia1.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.agencia1.descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vehiculo1.placa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vehiculo1.placa)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

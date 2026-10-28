@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AlumnosDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Alumno">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombres" Type="nvarchar" MaxLength="50" />
+    <Property Name="Apellidos" Type="nvarchar" MaxLength="50" />
+    <Property Name="Edad" Type="int" />
+    <Property Name="Genero" Type="char" MaxLength="1" />
+    <Property Name="CodigoCarrera" Type="int" Nullable="false" />
+    <Property Name="FechaNacimiento" Type="date" />
+    <Property Name="Foto" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Carrera">
+    <Key>
+      <PropertyRef Name="codCarrera" />
+    </Key>
+    <Property Name="codCarrera" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="50" />
+    <Property Name="numNiveles" Type="int" />
+  </EntityType>
+  <Association Name="FK_Alumno_Carrera">
+    <End Role="Carrera" Type="Self.Carrera" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Alumno" Type="Self.Alumno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Carrera">
+        <PropertyRef Name="codCarrera" />
+      </Principal>
+      <Dependent Role="Alumno">
+        <PropertyRef Name="CodigoCarrera" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AlumnosDBModelStoreContainer">
+    <EntitySet Name="Alumno" EntityType="Self.Alumno" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Carrera" EntityType="Self.Carrera" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Alumno_Carrera" Association="Self.FK_Alumno_Carrera">
+      <End Role="Carrera" EntitySet="Carrera" />
+      <End Role="Alumno" EntitySet="Alumno" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

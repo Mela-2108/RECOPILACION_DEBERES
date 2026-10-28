@@ -1,0 +1,61 @@
+﻿@model ConAutenticacion.Models.Clientes
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Clientes</h4>
+    <hr />
+    <div class="row">
+        
+        <div class="col-md-8">
+            <dl class="dl-horizontal" style="margin-left: 0;">
+                <dt style="text-align: left; width: 150px;">@Html.DisplayNameFor(model => model.Nombre)</dt>
+                <dd style="margin-left: 170px;">@Html.DisplayFor(model => model.Nombre)</dd>
+
+                <dt style="text-align: left; width: 150px;">@Html.DisplayNameFor(model => model.Direccion)</dt>
+                <dd style="margin-left: 170px;">@Html.DisplayFor(model => model.Direccion)</dd>
+
+                <dt style="text-align: left; width: 150px;">@Html.DisplayNameFor(model => model.Ciudad)</dt>
+                <dd style="margin-left: 170px;">@Html.DisplayFor(model => model.Ciudad)</dd>
+
+                <dt style="text-align: left; width: 150px;">@Html.DisplayNameFor(model => model.Provincia)</dt>
+                <dd style="margin-left: 170px;">@Html.DisplayFor(model => model.Provincia)</dd>
+
+                <dt style="text-align: left; width: 150px;">@Html.DisplayNameFor(model => model.CodigoPostal)</dt>
+                <dd style="margin-left: 170px;">@Html.DisplayFor(model => model.CodigoPostal)</dd>
+
+                <dt style="text-align: left; width: 150px;">@Html.DisplayNameFor(model => model.Cedula)</dt>
+                <dd style="margin-left: 170px;">@Html.DisplayFor(model => model.Cedula)</dd>
+
+                <dt style="text-align: left; width: 150px;">@Html.DisplayNameFor(model => model.Pais)</dt>
+                <dd style="margin-left: 170px;">@Html.DisplayFor(model => model.Pais)</dd>
+
+                <dt style="text-align: left; width: 150px;">@Html.DisplayNameFor(model => model.Telefonos)</dt>
+                <dd style="margin-left: 170px;">@Html.DisplayFor(model => model.Telefonos)</dd>
+            </dl>
+        </div>
+
+      
+        <div class="col-md-4 text-center">
+            <strong>@Html.DisplayNameFor(model => model.Foto)</strong><br /><br />
+            @if (Model != null && !string.IsNullOrEmpty(Model.Foto))
+            {
+                string archivoFoto = Model.Foto.Contains(".") ? Model.Foto : Model.Foto + ".jpg";
+                <img src="~/Imagenes/@archivoFoto" alt="Foto del Cliente" style="max-width: 160px; height: auto; border-radius: 8px; border: 1px solid #ddd; padding: 4px; background: #fff;" />
+            }
+            else
+            {
+                <span class="text-muted">Sin foto registrada</span>
+            }
+        </div>
+    </div>
+</div>
+
+<p style="margin-top: 20px;">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ClienteID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

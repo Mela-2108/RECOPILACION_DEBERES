@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MatriculacionFinalBD_NewModelStoreContainer" CdmEntityContainer="MatriculacionFinalBD_NewEntities">
+    <EntitySetMapping Name="agencia">
+      <EntityTypeMapping TypeName="MatriculacionFinalBD_NewModel.agencia">
+        <MappingFragment StoreEntitySet="agencia">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="horainicio" ColumnName="horainicio" />
+          <ScalarProperty Name="horafin" ColumnName="horafin" />
+          <ScalarProperty Name="foto" ColumnName="foto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="matricula">
+      <EntityTypeMapping TypeName="MatriculacionFinalBD_NewModel.matricula">
+        <MappingFragment StoreEntitySet="matricula">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="vehiculo" ColumnName="vehiculo" />
+          <ScalarProperty Name="agencia" ColumnName="agencia" />
+          <ScalarProperty Name="anio" ColumnName="anio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vehiculo">
+      <EntityTypeMapping TypeName="MatriculacionFinalBD_NewModel.vehiculo">
+        <MappingFragment StoreEntitySet="vehiculo">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="placa" ColumnName="placa" />
+          <ScalarProperty Name="marca" ColumnName="marca" />
+          <ScalarProperty Name="motor" ColumnName="motor" />
+          <ScalarProperty Name="chasis" ColumnName="chasis" />
+          <ScalarProperty Name="combustible" ColumnName="combustible" />
+          <ScalarProperty Name="anio" ColumnName="anio" />
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="foto" ColumnName="foto" />
+          <ScalarProperty Name="avaluo" ColumnName="avaluo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

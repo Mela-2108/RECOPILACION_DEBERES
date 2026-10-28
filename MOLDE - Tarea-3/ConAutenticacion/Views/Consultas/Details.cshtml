@@ -1,0 +1,41 @@
+﻿@model ConAutenticacion.Models.Consulta
+
+@{
+    ViewBag.Title = "Detalle de Consulta Médica";
+}
+
+<h2>Detalle de Consulta Médica</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Fecha de la Consulta:</dt>
+        <dd>
+            @{
+                string fechaTexto = Model.fecha.HasValue ? Model.fecha.Value.ToString("dd - MMMM - yyyy", new System.Globalization.CultureInfo("es-ES")) : "";
+            }
+            @fechaTexto
+        </dd>
+
+        <dt>Cédula del Paciente:</dt>
+        <dd>@Html.DisplayFor(model => model.Paciente.cedula)</dd>
+
+        <dt>Nombre del Paciente:</dt>
+        <dd>@Html.DisplayFor(model => model.Paciente.nombre)</dd>
+
+        <dt>Foto del Paciente:</dt>
+        <dd>
+            <img src="~/Imagenes/@Model.Paciente.foto" alt="Foto Paciente" style="width:150px; height:auto; border-radius:5px;" />
+        </dd>
+
+        <dt>Nombre del Médico:</dt>
+        <dd>@Html.DisplayFor(model => model.Medico.nombre)</dd>
+
+        <dt>Especialidad del Médico:</dt>
+        <dd>@Html.DisplayFor(model => model.Medico.codEspecialidad)</dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.codigoConsulta }) |
+    @Html.ActionLink("Regresar a la lista", "Index")
+</p>

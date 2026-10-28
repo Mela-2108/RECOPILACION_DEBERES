@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AlumnosDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Alumno">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Edad" Type="Int32" />
+    <Property Name="Genero" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CodigoCarrera" Type="Int32" Nullable="false" />
+    <Property Name="FechaNacimiento" Type="DateTime" Precision="0" />
+    <Property Name="Foto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Carrera" Relationship="Self.FK_Alumno_Carrera" FromRole="Alumno" ToRole="Carrera" />
+  </EntityType>
+  <EntityType Name="Carrera">
+    <Key>
+      <PropertyRef Name="codCarrera" />
+    </Key>
+    <Property Name="codCarrera" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="numNiveles" Type="Int32" />
+    <NavigationProperty Name="Alumno" Relationship="Self.FK_Alumno_Carrera" FromRole="Carrera" ToRole="Alumno" />
+  </EntityType>
+  <Association Name="FK_Alumno_Carrera">
+    <End Role="Carrera" Type="Self.Carrera" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Alumno" Type="Self.Alumno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Carrera">
+        <PropertyRef Name="codCarrera" />
+      </Principal>
+      <Dependent Role="Alumno">
+        <PropertyRef Name="CodigoCarrera" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AlumnosDBContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Alumno" EntityType="Self.Alumno" />
+    <EntitySet Name="Carrera" EntityType="Self.Carrera" />
+    <AssociationSet Name="FK_Alumno_Carrera" Association="Self.FK_Alumno_Carrera">
+      <End Role="Carrera" EntitySet="Carrera" />
+      <End Role="Alumno" EntitySet="Alumno" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
